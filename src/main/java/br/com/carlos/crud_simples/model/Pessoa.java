@@ -8,15 +8,6 @@ import lombok.Data;
 @Table(name ="Pessoa")
 public class Pessoa {
 
-    public Pessoa() {
-    }
-
-    public Pessoa(String nome, String cpf, boolean ativo) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.ativo = ativo;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -27,7 +18,14 @@ public class Pessoa {
     @Column(nullable = false)
     private boolean ativo; //sempre true
 
+    public Pessoa() {
+    }
 
+    public Pessoa(String nome, String cpf, boolean ativo) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.ativo = ativo;
+    }
 
 
 
