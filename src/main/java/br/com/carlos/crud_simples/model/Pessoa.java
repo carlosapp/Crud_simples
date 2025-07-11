@@ -17,7 +17,7 @@ public class Pessoa {
     @Column(nullable = true, length = 11)
     private String cpf;
     @Column(nullable = false)
-    private boolean ativo;
+    private boolean ativo; //sempre true
 
     public Pessoa() {
     }
