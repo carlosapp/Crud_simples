@@ -13,7 +13,7 @@ public class Pessoa {
     private long id;
     @Column(nullable = false, length = 150)
     private String nome;
-    @Column(nullable = true, length = 11)
+    @Column(unique = true, nullable = false, length = 11)
     private String cpf;
     @Column(nullable = false)
     private boolean ativo; //sempre true
@@ -26,9 +26,5 @@ public class Pessoa {
         this.cpf = cpf;
         this.ativo = ativo;
     }
-
-
-
-
 
 }
