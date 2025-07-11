@@ -9,10 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 
-
+/*@CrossOrigin(origins = {
+        "https://meu-front-principal.com",
+        "https://admin.meusistema.com",
+        "http://localhost:3000" // para desenvolvimento local */
 @RestController
 @RequestMapping("/pessoas")
 @CrossOrigin(origins = "*") // Habilita requisições de qualquer origem (útil para usar com frontend separado)
+//@CrossOrigin(origins = "https://meu-frontend.com") // <- troque pelo domínio real
 public class PessoaController {
 
 
