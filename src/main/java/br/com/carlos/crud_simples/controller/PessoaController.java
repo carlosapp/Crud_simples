@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
+
 @RestController
 @RequestMapping("/pessoas")
 @CrossOrigin(origins = "*") // Habilita requisições de qualquer origem (útil para usar com frontend separado)
 public class PessoaController {
+
 
     @Autowired
     private PessoaService service;
