@@ -17,6 +17,9 @@
     <label for="ativo">Ativo:</label>
     <input type="checkbox" id="ativo" name="ativo" checked><br><br>
 
+    <label for="proprietario">Proprietário:</label>
+    <input type="checkbox" id="proprietario" name="proprietario" checked><br><br>
+
     <button type="submit">Enviar</button>
 </form>
 
@@ -27,38 +30,40 @@
     const mensagem = document.getElementById('mensagem');
 
     form.addEventListener('submit', function(event) {
-      event.preventDefault();
+        event.preventDefault();
 
-      const nome = document.getElementById('nome').value;
-      const cpf = document.getElementById('cpf').value;
-      const ativo = document.getElementById('ativo').checked;
+        const nome = document.getElementById('nome').value;
+        const cpf = document.getElementById('cpf').value;
+        const ativo = document.getElementById('ativo').checked;
+        const proprietario = document.getElementById('proprietario').checked;
 
-      const pessoa = {
-        nome: nome,
-        cpf: cpf,
-        ativo: ativo
-      };
+        const pessoa = {
+            nome: nome,
+            cpf: cpf,
+            ativo: ativo,
+            proprietario: proprietario
+        };
 
-      fetch('http://localhost:8080/pessoas', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(pessoa)
-      })
-      .then(response => {
-        if (response.ok) {
-          mensagem.innerText = 'Pessoa cadastrada com sucesso!';
-          form.reset();
-        } else {
-          return response.text().then(text => {
-            throw new Error(text);
-          });
-        }
-      })
-      .catch(error => {
-        mensagem.innerText = 'Erro ao cadastrar: ' + error.message;
-      });
+        fetch('http://localhost:8080/pessoas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(pessoa)
+        })
+        .then(response => {
+            if (response.ok) {
+                mensagem.innerText = 'Pessoa cadastrada com sucesso!';
+                form.reset();
+            } else {
+                return response.text().then(text => {
+                    throw new Error(text);
+                });
+            }
+        })
+        .catch(error => {
+            mensagem.innerText = 'Erro ao cadastrar: ' + error.message;
+        });
     });
 </script>
 </body>
